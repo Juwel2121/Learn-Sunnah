@@ -1,0 +1,60 @@
+
+<script>
+async function checkFirstTimeVoter(currentVoter, questionId) {
+  console.log("checkFirstTimeVoter current voter is " + currentVoter + " question id is " + questionId);
+
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/questions/${questionId}/ranks/`);
+    const objdata = await response.json();
+
+    console.log(objdata);
+
+    // Check if any object in objdata has the user property equal to currentVoter
+    const userRank = objdata.find((rank) => rank.user === currentVoter);
+
+    if (userRank) {
+      // If a match is found, return the id
+      console.log("User found in ranks:", userRank);
+      return userRank.id;
+    } else {
+      // If no match is found, return -1
+      console.log("User not found in ranks.");
+      return -1;
+    }
+  } catch (error) {
+    // Handle errors, if any
+    console.error("Error occurred while fetching ranks:", error);
+    return -1;
+  }
+}
+
+async function main() {
+  // Fetch the ranksId using the checkFirstTimeVoter function
+  var ranksId = await checkFirstTimeVoter(currentVoter, questionId);
+  console.log("ranskId received from function is " + ranksId);
+
+  // In objdata if not present a user equal to currentVoter
+  var url = `http://127.0.0.1:8000/questions/${questionId}/ranks/`;
+  var Method = "POST";
+
+  // In objdata if present a user equal to currentVoter
+  if (ranksId !== -1) {
+    url = `http://127.0.0.1:8000/questions/${questionId}/ranks/${ranksId}/`;
+    Method = "PUT";
+  }
+
+  // Continue with the fetch call
+  fetch(url, {
+    method: Method,
+    headers: {
+      'Authorization': `JWT ${localStorage.getItem('access_token')}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ value: value })
+  }).then((response) => {
+    // Rest of the code
+  });
+}
+
+main();
+</script>

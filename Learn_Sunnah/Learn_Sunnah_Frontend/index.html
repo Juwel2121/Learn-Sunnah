@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <title>Welcome</title>
+      <!-- page name -->
+      <style media="screen">
+         .carousel-cell {
+         width: 100%;
+         margin-left: 100px;
+         height: 300px;
+         }
+         /* cell number */
+         .carousel-cell:before {
+         display: block;
+         }
+      </style>
+   </head>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <!-- main code start --> 
+   <body class="bg-slate-500">
+      <!-- Navbar design here -->
+      <nav class="fixed top-0 w-full z-10 bg-white border-gray-200 px-2 sm:px-4 py-1 dark:bg-gray-900">
+         <div class="container flex flex-wrap items-center justify-between mx-auto">
+            <a href="all_book.html" class="flex items-center">
+            <span class="  self-center text-xl font-semibold whitespace-nowrap dark:text-white">Sunnah Library</span>
+            </a>
+            <!-- hidden menu button for mobile --> 
+            <div class="flex md:order-2">
+               <button data-collapse-toggle="navbar-search" type="button" onclick="showMenu()" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
+                  <span class="sr-only">Open menu</span>
+                  <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                  </svg>
+               </button>
+            </div>
+            <!-- Navbar button design here -->
+            <div id="menu"  class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
+               <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                  <li>
+                     <a href="index.html" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
+                  </li>
+                  <li>
+                     <a href="about.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                  </li>
+                  <li>
+                     <a href="login.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">login</a>
+                  </li>
+                  <li>
+                     <a href="signup.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Signup</a>
+                  </li>
+                  <li>
+                     <a href="help.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Help</a>
+                  </li>
+               </ul>
+               <form id="searchForm" action="search.html" method="get">
+                  <!-- Navbar search button design here -->
+                  <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                  <div class="relative">
+                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                     </div>
+                     <input type="search" id="default-search" name="keywords" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="keywords" required>
+                     <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                  </div>
+               </form>
+               <div class="pl-[200px]" id="card"></div>
+            </div>
+         </div>
+      </nav>
+      <!-- Main content of your page goes here -->
+      <div class="mt-[55px]">
+         <!--category display-->
+         <div class="w-[150px] bg-[#f1f1f1] h-full fixed ">
+            <div class="p-[20px]">
+               <!-- Sidebar content goes here -->
+               <ul>
+                  <p>Catagory:</p>
+                  <div class="ml-[70px] "  id="category" >
+                     <!-- <li>${values.name} </li> -->
+                  </div>
+               </ul>
+            </div>
+         </div>
+         <div class="  flex flex-col space-y-6  justify-center items-center ml-[150px] p-2" id="card-container">
+            <!-- Main content of your page goes here -->
+            <!-- Question 1--> 
+         </div>
+      </div>
+      <!-- script code start here -->
+      <!-- //current content visibility ensure -->
+      <script>
+         function showMenu(){
+           const show=document.getElementById("menu");
+           if(show.style.display=="block")
+           {
+             show.style.display="";
+           }
+           else{
+             show.style.display="block";
+           }
+         }
+      </script>
+      <!-- moderate(dont know why) section -->
+      <section class="pt-[60px]">
+         <div id="card-container" class="grid lg:grid-cols-4 grid-cols-1 p-4">
+         </div>
+      </section>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+      <!-- username get & show -->
+      <script>function fetchSortedQuestions() {
+         var currentVoter ="";
+         function formatDate(timestamp) 
+          {
+                  const options = { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', hour12: true };
+                  const date = new Date(timestamp);
+                  return date.toLocaleString('en-US', options);
+          }
+          // Get the value of the 'id' parameter from the current URL
+         const urlP = new URLSearchParams(window.location.search);
+         const idc = urlP.get('id');
+         if(localStorage.getItem('access_token')) 
+           {
+               console.log(localStorage.getItem('access_token')) //http://127.0.0.1:8000/auth/users/me/ 
+         
+               fetch('http://127.0.0.1:8000/auth/users/me/', 
+                 {
+                   method: "GET",
+                   headers: 
+                   {
+                     'Authorization': `JWT ${localStorage.getItem('access_token')}`
+                   }
+                 }
+               )
+               .then((data) => 
+                 {
+                   return data.json()
+                 }
+               )
+               .then((data) => 
+                 {
+                   let carddata="";
+                   carddata+=`<a class="cursor-pointer" href="profile.html"><p class=" font-bold text-[20px]">${data.username}</p></a>`;
+                   
+                   currentVoter = data.id;
+                   // print currentVoter id in console
+                   console.log("current voter id is "+currentVoter);
+                   document.getElementById('card').innerHTML=carddata;
+                   console.log(data);
+                 }
+               )  
+           }
+         
+           
+         //all question fetch and show in home page
+         function fetchQuestions() {
+         fetch('http://127.0.0.1:8000/questions/' )
+         .then((data) => 
+           {
+             // Process the data and create cards
+             return data.json();
+           }
+         ).then((objdata)=>
+             {
+              // Sort the questions array based on the 'rank' property in descending order
+        objdata.sort((a, b) => b.rank - a.rank);
+               let carddata="";
+               objdata.map((values)=>
+                 {
+                   
+                   let limitedAnswer = values.answer.length > 600 ? `${values.answer.slice(0, 600)}...more` : values.answer;
+                   var video = "";
+                   if(values.answer_video != null)
+                   {
+                     video  = `<video class="flex items-center mt-4" width="500" height="600"controls>
+                             <source src="${values.answer_video}" type="video/mp4">
+                     </video>`;
+                   }
+                   carddata+=`<div class="bg-white rounded-lg shadow-lg p-4">
+                         <div class="p-2 w-[500px] ">
+                           <h1 class="text-blue-600 font-bold">Question:</h1>
+                             <h1>${values.question}</h1>
+                           <p class="text-blue-600 font-bold"> Answer:</p>
+                           <p>${limitedAnswer}</p>
+                           <img src="${values.answer_photo}" alt="">
+                           ${video}
+                         </div>
+         
+                         <!-- rank, views and details button start -->
+                         <div class="flex items-center justify-between">
+         
+                           <!-- rank button-->
+                           <div class="flex items-center justify-between space-x-2">
+                             <p class="font-semibold">Rank</p>
+         
+                             <!--rank up vote button-->
+                             <button class="upvote-button bg-green-500 hover:bg-green-600 rounded-full px-2 py-1"
+                                     data-question-id="${values.id}">
+                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                                 <path fill-rule="evenodd"
+                                       d="M14 14a.75.75 0 0 1-1.5 0v-4.793l-1.146 1.147a.75.75 0 0 1-1.061-1.061l2.5-2.5a.75.75 0 0 1 1.06 0l2.5 2.5a.75.75 0 1 1-1.06 1.06L14 9.207V14z"/>
+                               </svg>
+                             </button>
+         
+                             <!--rank down vote button-->
+                             <button class="downvote-button bg-red-500 hover:bg-red-600 rounded-full px-2 py-1"
+                                     data-question-id="${values.id}">
+                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                                 <path fill-rule="evenodd"
+                                       d="M6 6a.75.75 0 0 1 1.5 0v4.793l1.146-1.147a.75.75 0 0 1 1.061 1.061l-2.5 2.5a.75.75 0 0 1-1.06 0l-2.5-2.5a.75.75 0 1 1 1.06-1.06L6 10.793V6z"/>
+                               </svg>
+                             </button>
+                             
+                            <!--here write chatgpt. all question sort by rank order  -->
+                             <div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl   shadow-lg">
+                               <p class="text-sm">${values.rank}</p>
+                             </div>
+                           </div>
+         
+                           <!-- views button-->
+                           <div class="flex space-x-1">  
+                             <p class="font-semibold ">Views</p>
+                             <div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl   shadow-lg">
+                               <p class="text-sm">${values.views}</p>
+                             </div>
+                           </div>
+         
+                           <!-- comments button -->
+                           <div class="flex space-x-1 space-y-1">
+                             <button
+                             class="flex select-none items-center py-2 px-4 bg-gradient-to-r from-blue-500 to-green-500 hover:from-green-500 hover:to-blue-500 transition-colors duration-300 ease-in-out shadow-lg rounded-full text-white font-bold text-sm"
+                             onclick="redirectToViewQuestion(${values.id})">Comments
+                             </button>
+                             <div><p class="w-7 h-7 rounded-full bg-blue-500 text-white flex space-x-1  justify-center text-xl text-sm  shadow-lg"  >5</p>
+                             </div>   
+                           </div>
+         
+                           <!-- details button -->
+                           <div>
+                             <button
+                               class="flex select-none items-center py-2 px-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 transition-colors duration-300 ease-in-out shadow-lg rounded-full text-white font-bold text-sm"
+                               onclick="redirectToViewQuestion(${values.id})"
+                             >
+                               Details
+                             </button>
+                           </div>
+         
+                         </div>
+                       </div>
+                   `;
+                 }
+               );
+               document.getElementById('card-container').innerHTML=carddata;
+         
+             }
+         );
+           }
+         
+         // Function to handle the upvote button click
+         function upvoteQuestion(questionId) {
+           postVote(questionId, 1);
+         }
+         
+         // Function to handle the downvote button click
+         function downvoteQuestion(questionId) {
+           postVote(questionId, -1);
+         }
+         
+         // Function to post the vote value to the server
+         function postVote(questionId, value) 
+         {
+            
+           async function main() {
+         
+             // Fetch the ranksId using the checkFirstTimeVoter function
+         var ranksId = await checkFirstTimeVoter(currentVoter, questionId);
+         console.log("ranskId received from function is " + ranksId);
+         
+            
+            
+           // In objdata if not present a user equal to currentVoter
+         var url = `http://127.0.0.1:8000/questions/${questionId}/ranks/`;
+         var Method = "POST";
+         
+         // In objdata if present a user equal to currentVoter
+         if (ranksId !== -1) {
+           url = `http://127.0.0.1:8000/questions/${questionId}/ranks/${ranksId}/`;
+           Method = "PUT";
+         }
+         
+           fetch(url, {
+                   method: Method,
+                   headers: {
+                     'Authorization': `JWT ${localStorage.getItem('access_token')}`,
+                     'Content-Type': 'application/json'
+                   },
+                   body: JSON.stringify({ value: value })
+                 }).then((response) => {
+                   
+                   if (response.ok) {
+                   
+                     console.log(`Vote of ${value} posted for Question with ID ${questionId} successfully.`);
+                     // Reload questions to update the vote count after posting the vote
+                     fetchQuestions();
+                   } else {
+                     console.error(`Failed to post vote of ${value} for Question with ID ${questionId}.`);
+                   }
+                 }).catch((error) => {
+                   console.error(`Error occurred while posting vote of ${value} for Question with ID ${questionId}.`, error);
+                 });
+         
+         
+               } 
+               main();
+         } 
+         
+         async function checkFirstTimeVoter(currentVoter, questionId) {
+         console.log("checkFirstTimeVoter current voter is " + currentVoter + " question id is " + questionId);
+         
+         try {
+           const response = await fetch(`http://127.0.0.1:8000/questions/${questionId}/ranks/`);
+           const objdata = await response.json();
+         
+           console.log(objdata);
+         
+           // Check if any object in objdata has the user property equal to currentVoter
+           const userRank = objdata.find((rank) => rank.user === currentVoter);
+         
+           if (userRank) {
+             // If a match is found, return the id
+             console.log("User found in ranks:", userRank);
+             return userRank.id;
+           } else {
+             // If no match is found, return -1
+             console.log("User not found in ranks.");
+             return -1;
+           }
+         } catch (error) {
+           // Handle errors, if any
+           console.error("Error occurred while fetching ranks:", error);
+           return -1;
+         }
+         }
+         
+         
+         // Event delegation for Upvote and Downvote buttons
+         document.getElementById('card-container').addEventListener('click', (event) => {
+           const target = event.target;
+           console.log( `click found`);
+           // Traverse up the DOM tree to find the parent button element
+           const upvoteButton = target.closest('.upvote-button');
+           const downvoteButton = target.closest('.downvote-button');
+         
+           if (upvoteButton) {
+             console.log(`click found upvote button`);
+             // Get the questionId from the data attribute
+             const questionId = upvoteButton.dataset.questionId;
+             console.log('click found upvote button');
+             upvoteQuestion(questionId);
+           } else if (downvoteButton) {
+             console.log(`click found downvote button`);
+             // Get the questionId from the data attribute
+             const questionId = downvoteButton.dataset.questionId;
+             console.log('click found downvote button');
+             downvoteQuestion(questionId);
+           } else {
+             console.log('click not matched with up/down vote button');
+           }
+         });
+        // 
+         // Fetch questions on initial page load
+         fetchQuestions();}
+         fetchSortedQuestions();
+         </script>
+      <script>
+         function redirectToViewQuestion(questionId) {
+           
+           window.location.href = `view_question.html?id=${questionId}`;
+         }
+         
+      </script>
+
+      <script>
+         if (localStorage.getItem('access_token')) 
+         {
+           console.log(localStorage.getItem('access_token'));
+         
+           // Fetch all categories and display them on the home page
+           fetch('http://127.0.0.1:8000/questions_categorys/')
+           .then((data) => {
+             // Process the data and create cards
+             return data.json();
+           })
+           .then((objdata) => 
+             {
+               let carddata = "";
+               objdata.map((values) => 
+                 {
+                   carddata += `<li><a href="search.html?keywords=${encodeURIComponent(values.name)}">${values.name}</a></li>`;
+                 }
+               );
+         
+               document.getElementById('category').innerHTML = carddata;
+             }
+           );
+         }
+      </script>
+   </body>
+</html>

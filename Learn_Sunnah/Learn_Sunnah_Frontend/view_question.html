@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <title>Question Details</title><!-- page name -->
+      
+      <style media="screen">
+         .carousel-cell {
+         width: 100%;
+         margin-left: 100px;
+         height: 300px;
+         }
+         /* cell number */
+         .carousel-cell:before {
+         display: block;
+         }
+      </style>
+      <style>.button 
+         {
+               cursor: pointer;padding: 5px 10px;border: none;border-radius: 4px;color: white;  text-align: center;text-decoration: none;display: inline-block;transition: background-color 0.3s;
+         }
+         .button-icon 
+         {
+            margin-right: 5px;
+         }
+      </style>
+   </head>
+   <!-- main code start --> 
+   <body class="bg-slate-500">
+        
+      <!-- Navbar design here -->
+      <nav class="fixed top-0 w-full z-10 bg-white border-gray-200 px-2 sm:px-4 py-1 dark:bg-gray-900">
+         <div class="container flex flex-wrap items-center justify-between mx-auto">
+            <a href="all_book.html" class="flex items-center">
+            <span class="  self-center text-xl font-semibold whitespace-nowrap dark:text-white">Sunnah Library</span>
+            </a>
+            <!-- hidden menu button for mobile --> 
+            <div class="flex md:order-2">
+               <button data-collapse-toggle="navbar-search" type="button" onclick="showMenu()" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
+                  <span class="sr-only">Open menu</span>
+                  <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                  </svg>
+               </button>
+            </div>
+            <!-- Navbar button design here -->
+            <div id="menu"  class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
+               <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                  <li>
+                     <a href="index.html" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
+                  </li>
+                  <li>
+                     <a href="about.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                  </li>
+                  <li>
+                     <a href="login.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">login</a>
+                  </li>
+                  <li>
+                     <a href="signup.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Signup</a>
+                  </li>
+                  <li>
+                     <a href="help.html" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Help</a>
+                  </li>
+               </ul>
+               <form id="searchForm" action="search.html" method="get">
+                  <!-- Navbar search button design here -->
+                  <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                  <div class="relative">
+                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                     </div>
+                     <input type="search" id="default-search" name="keywords" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="keywords" required>
+                     <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+                  </div>
+               </form>
+               <div class="pl-[200px]" id="card"></div>
+            </div>
+         </div>
+      </nav>
+      <!-- Main content of your page goes here -->
+      <div class="mt-[55px]">
+
+         <!--category display-->
+         <div class="w-[150px] bg-[#f1f1f1] h-full fixed">
+            <div class="p-[20px]">
+               <!-- Sidebar content goes here -->
+               <ul>
+                  <p>Category:</p>
+                  <div class="ml-[70px]" id="category">
+                     <!-- Categories will be dynamically populated here -->
+                  </div>
+               </ul>
+            </div>
+         </div>
+
+         <div class="  flex flex-col space-y-6  justify-center items-center ml-[150px] p-2" id="card-container">
+            <!-- Main content of your page goes here -->
+            <!-- Question answer display here--> 
+         </div>
+
+         <!-- comments -->
+         <div class="flex flex-col space-y-6 justify-center items-center ml-[150px] p-2">
+            <div class="bg-white rounded-lg shadow-lg p-4">
+                <div class="p-2 w-[500px] space-y-6">
+                    <div class="space-y-6">
+                        <!-- comments box -->
+                        <div class="max-w-lg rounded-lg shadow-md shadow-blue-600/50">
+                        <form id="commentForm" class="w-full p-4">
+                            <div class="mb-2">
+                                <label for="commentsbox" class="text-gray-600">Add a comment</label>
+                                <textarea
+                                    class="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
+                                    name="comment"
+                                    placeholder="" required></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded">
+                                Comment
+                                </button>
+                            </div>
+                        </form>
+                        </div>
+                        <!-- comments box end -->
+                        <!-- all comments display here -->
+                        <h1 class="text-blue-600 text-lg font-bold">55 Comments:</h1>
+                        <div class="space-y-3" id="comments">
+                        <!-- all comment fetch and forward here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+      </div>
+      <script>
+         //current content visibility ensure
+         function showMenu(){
+           const show=document.getElementById("menu");
+           if(show.style.display=="block")
+           {
+             show.style.display="";
+           }
+           else{
+             show.style.display="block";
+           }
+         }
+      </script>
+      <div class="flex justify-center ">
+      </div>
+      <section class="pt-[60px]">
+         <div id="card-container" class="grid lg:grid-cols-4 grid-cols-1 p-4">
+            <!--fetch question forward here-->
+         </div>
+      </section>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+      <!-- username get & show -->
+      <script>
+         if(localStorage.getItem('access_token')) 
+         {
+             console.log(localStorage.getItem('access_token')) //http://127.0.0.1:8000/auth/users/me/ 
+         
+             fetch('http://127.0.0.1:8000/auth/users/me/', {
+               method: "GET",
+               headers: {
+                 'Authorization': `JWT ${localStorage.getItem('access_token')}`
+               }
+             })
+             .then((data) => {
+               return data.json()
+             })
+             .then((data) => {
+               let carddata="";
+             carddata+=`<a class="cursor-pointer" href="profile.html"><p class=" font-bold text-[20px]">${data.username}</p></a>`;
+           
+           document.getElementById('card').innerHTML=carddata;
+               console.log(data);
+             })  
+         }
+      </script>
+
+      <script>
+         if (localStorage.getItem('access_token')) {
+           console.log(localStorage.getItem('access_token'));
+         
+           // Fetch all categories and display them on the home page
+           fetch('http://127.0.0.1:8000/questions_categorys/')
+             .then((data) => {
+               // Process the data and create cards
+               return data.json();
+             })
+             .then((objdata) => {
+               let carddata = "";
+               objdata.map((values) => {
+                 carddata += `<li><a href="search.html?keywords=${encodeURIComponent(values.name)}">${values.name}</a></li>`;
+               });
+         
+               document.getElementById('category').innerHTML = carddata;
+             });
+         }
+      </script>
+
+      <!-- one question all property fetch and show -->
+      <script>
+         // Get the value of the 'id' parameter from the current URL
+         const urlParams = new URLSearchParams(window.location.search);
+         const id = urlParams.get('id');
+         
+         if(localStorage.getItem('access_token')) 
+           {
+               console.log(localStorage.getItem('access_token')) //http://127.0.0.1:8000/auth/users/me/ 
+             //book fetch
+             fetch('http://127.0.0.1:8000/questions/'+id+'/', 
+             {
+                 method: "GET",
+                 headers: {
+                   'Authorization': `JWT ${localStorage.getItem('access_token')}`
+                 }
+             }).then((data) => 
+             {
+               // Process the data and create cards
+               return data.json();
+             }).then((objdata)=>
+             {
+               let carddata="";
+         
+               var video = "";
+               if(objdata.answer_video != null)
+               {
+                 video  = `<video class="mt-4" width="500" height="600"controls>
+                         <source src="${objdata.answer_video}" type="video/mp4">
+                 </video>`;
+               }
+         
+               // console.log(objdata); 
+               carddata+=`
+                         <div class="bg-white rounded-lg shadow-lg p-4">
+                           <div class="p-2 w-[500px] ">
+                             <h1 class="text-blue-600 font-bold">Question:</h1>
+                             <h1>${objdata.question}</h1>
+                             <p class="text-blue-600 font-bold"> Answer:</p>
+                             <p>${objdata.answer}</p>
+                             <img src="${objdata.answer_photo}" alt="">
+                             ${video}
+                           </div>
+                            <!-- rank, views and details button start -->
+                           <div class="flex items-center justify-between">
+                             <!-- rank button-->
+                             <div class="flex items-center justify-between space-x-2">
+                               <p class="font-semibold">Rank</p>    
+                               
+                               <button class="bg-green-500 hover:bg-green-600 rounded-full px-2 py-1">
+                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                                     <path fill-rule="evenodd" d="M14 14a.75.75 0 0 1-1.5 0v-4.793l-1.146 1.147a.75.75 0 0 1-1.061-1.061l2.5-2.5a.75.75 0 0 1 1.06 0l2.5 2.5a.75.75 0 1 1-1.06 1.06L14 9.207V14z"/>
+                                 </svg>
+                               </button>
+         
+                               <button class="bg-red-500 hover:bg-red-600 rounded-full px-2 py-1">
+                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                                     <path fill-rule="evenodd" d="M6 6a.75.75 0 0 1 1.5 0v4.793l1.146-1.147a.75.75 0 0 1 1.061 1.061l-2.5 2.5a.75.75 0 0 1-1.06 0l-2.5-2.5a.75.75 0 1 1 1.06-1.06L6 10.793V6z"/>
+                                 </svg>
+                               </button>
+         
+                               <div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl   shadow-lg">
+                                 <p class="text-sm">${objdata.rank}</p>
+                               </div>
+                             </div>
+         
+                              
+         
+                             <!-- views button-->
+                             <div class="flex space-x-1">
+                                 <p class="font-semibold ">Views</p>
+                                 <div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl   shadow-lg">
+                                   <p class="text-sm">${objdata.views}</p>
+                                 </div>
+                             </div>
+         
+                             <!-- comments button -->
+                             <div class="flex space-x-1 space-y-1">
+                                 <button
+                                   class="flex select-none items-center py-2 px-4 bg-gradient-to-r from-blue-500 to-green-500 hover:from-green-500 hover:to-blue-500 transition-colors duration-300 ease-in-out shadow-lg rounded-full text-white font-bold text-sm"
+                                   onclick="redirectToViewQuestion(${objdata.id})">Comments
+                                 </button>
+                                 <div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl   shadow-lg">
+                                   <p class="text-sm">55</p>
+                                 </div>
+                             </div>
+         
+                             <!-- details button -->
+                             <div>
+                                 <button
+                                   class="flex select-none items-center py-2 px-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 transition-colors duration-300 ease-in-out shadow-lg rounded-full text-white font-bold text-sm"
+                                   onclick="redirectToViewQuestion(${objdata.id})"
+                                   >
+                                 Details
+                                 </button>
+                             </div>
+                           </div>
+         </div>
+         `;
+               document.getElementById('card-container').innerHTML=carddata;
+             }
+             );
+         }
+      </script>
+       
+
+      <!-- all comments fetch and show -->
+<script>
+    function formatDate(timestamp) 
+    {
+            const options = { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', hour12: true };
+            const date = new Date(timestamp);
+            return date.toLocaleString('en-US', options);
+    }
+  
+    // Get the value of the 'id' parameter from the current URL
+    const urlP = new URLSearchParams(window.location.search);
+    const idc = urlP.get('id');
+  
+    function fetchComments() {
+      // Question fetch
+      fetch('http://127.0.0.1:8000/questions/' + idc + '/', {
+        method: "GET",
+        headers: {
+          'Authorization': `JWT ${localStorage.getItem('access_token')}`
+        }
+      }).then((data) => {
+        // Process the data and create cards
+        return data.json();
+      }).then((objdata) => {
+        objdata.comments.sort((a, b) => b.id - a.id);
+        let carddata = "";
+        objdata.comments.forEach((comment) => {
+          carddata += `
+            
+          <div class="flex space-x-2" >
+    <!--user name first letter under a circle-->
+    <div class="w-12 h-12 rounded-full bg-blue-500 text-white flex   items-center justify-center text-2xl   shadow-lg" >
+            <p class="  font-bold text-white">M</p>  
+    </div>
+    <div >
+        <!-- username -->
+        <p class="flex space-x-2">@username</p>
+        <!-- comment show here -->
+        <div>
+            <p>${comment.comment}</p>
+        </div>
+    </div>
+    <!--comment time-->
+    <div class="flex space-x-2"><p>${formatDate(comment.created_at)}</p> 
+    </div>
+    <!--edit and delete button -->
+    <div>
+        <div class="flex space-x-2" >
+            <!-- Edit Button -->
+            <button class="button edit-button text-black hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 flex items-center space-x-1">
+                <span class="fas fa-pen button-icon text-xs"></span>
+                <span class="text-sm">Edit</span>
+            </button>
+            <!-- Delete Button -->
+            <button class="button edit-button text-black hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50 flex items-center space-x-1">
+                <span class="fas fa-trash-alt button-icon text-xs"></span>
+                <span class="text-sm">Delete</span>
+            </button>
+        </div>
+    </div>
+</div>           
+          `;
+  
+          // Check if there are any replies for the comment
+          if (comment.replies.length > 0) {
+            carddata += `
+            <div class="space-x-12">
+                <h1 class="space-x-12"> Reply:</h1>
+                <ul>
+                    ${comment.replies.map((reply) => `<li>${reply.reply} - ${formatDate(reply.created_at)}</li>`).join('')}
+                </ul>
+            </div>
+            `;
+          }
+        });
+  
+        document.getElementById('comments').innerHTML = carddata;
+      });
+    }
+  
+    // Function to handle the Edit button click
+    function editComment(commentId) {
+      // Implement the logic to open an edit form/modal or navigate to the edit page with the commentId
+      // You can use the commentId to identify the comment that needs to be edited
+      console.log(`Edit Comment with ID: ${commentId}`);
+      // Example: Open an edit form or navigate to the edit page
+    }
+  
+    // Function to handle the Delete button click
+    function deleteComment(commentId) {
+      // Implement the logic to delete the comment with the given commentId
+      // You can use fetch with the DELETE method to send a request to the API to delete the comment
+      // After successful deletion, you may want to reload the comments to update the view
+      console.log(`Delete Comment with ID: ${commentId}`);
+      // Example: Delete the comment using fetch
+      fetch(`http://127.0.0.1:8000/questions/${idc}/comments/${commentId}/`, {
+        method: "DELETE",
+        headers: {
+          'Authorization': `JWT ${localStorage.getItem('access_token')}`,
+          'Content-Type': 'application/json'
+        }
+      }).then((response) => {
+        if (response.ok) {
+          console.log(`Comment with ID ${commentId} deleted successfully.`);
+          // Reload comments to update the view after deletion
+          fetchComments();
+        } else {
+          console.error(`Failed to delete comment with ID ${commentId}.`);
+        }
+      }).catch((error) => {
+        console.error(`Error occurred while deleting comment with ID ${commentId}.`, error);
+      });
+    }
+  
+    // Fetch comments on initial page load
+    fetchComments();
+</script>
+
+      <!-- submit comment -->
+      <script>
+         function formatDate(timestamp) 
+         {
+                 const options = { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', hour12: false };
+                 const date = new Date(timestamp);
+                 return date.toLocaleString('en-US', options);
+          }
+         
+         function fetchComments() {
+           // Get the value of the 'id' parameter from the current URL
+           const urlP = new URLSearchParams(window.location.search);
+           const idc = urlP.get('id');
+         
+           if (localStorage.getItem('access_token')) {
+             console.log(localStorage.getItem('access_token')) //http://127.0.0.1:8000/auth/users/me/ 
+                  //question fetch
+         
+             fetch('http://127.0.0.1:8000/questions/' + idc + '/', {
+               method: "GET",
+               headers: {
+                 'Authorization': `JWT ${localStorage.getItem('access_token')}`
+               }
+             }).then((data) => {
+               // Process the data and create cards
+               return data.json();
+             }).then((objdata) => {
+               let carddata = "";
+               objdata.comments.forEach((comment) => {
+                 // ... (same as before)
+               });
+         
+               document.getElementById('commentsbox').innerHTML = carddata;
+             });
+           }
+         }
+         
+         // Handle form submission to post the comment
+         document.getElementById('commentForm').addEventListener('submit', function (event) {
+           event.preventDefault();
+           const commentData = {
+             comment: event.target.comment.value
+           };
+         
+           // Get the value of the 'id' parameter from the current URL
+           const urlP = new URLSearchParams(window.location.search);
+           const idc = urlP.get('id');
+         
+           fetch('http://127.0.0.1:8000/questions/' + idc + '/comments/', {
+             method: "POST",
+             headers: {
+               'Authorization': `JWT ${localStorage.getItem('access_token')}`,
+               'Content-Type': 'application/json'
+             },
+             body: JSON.stringify(commentData)
+           }).then(() => {
+             // Refresh the comments after posting
+             fetchComments();
+           });
+         
+           // Clear the comment textarea after submission
+           event.target.comment.value = '';
+         });
+         
+         // Fetch comments initially when the page loads
+         fetchComments();
+      </script>
+
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+   </body>
+</html>
+  

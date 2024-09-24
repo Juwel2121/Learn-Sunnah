@@ -1,0 +1,20 @@
+<!-- check how show pdf -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF Viewer</title>
+</head>
+<body>
+    <div id="pdf-container">
+      <iframe id="pdf-viewer" width="1505" height="1024" src="#" ></iframe>
+    </div>
+
+    <script>
+      const url = window.location.href;
+      console.log(url.split('?'))
+      const pdf_viewer = document.querySelector('#pdf-viewer')
+      pdf_viewer.setAttribute("src", url.split('?')[1]);
+      // console.log(pdf_viewer)
+    </script>
+</body>
+</html>
