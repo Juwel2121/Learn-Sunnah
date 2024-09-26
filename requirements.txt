@@ -1,0 +1,8 @@
+Django>=3.2,<4.0
+djangorestframework
+html5lib
+requests
+pillow
+numpy
+pandas
+tailwindcss
