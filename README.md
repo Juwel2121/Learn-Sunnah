@@ -49,9 +49,36 @@
 - **Code Editor**: VS Code
 - **Modules**: Content Management (Library, Q&A, User Profiles, Search, Voting)
 
+## Future Scope
+- Expand content by collaborating with scholars and experts.
+- Introduce multilingual support.
+- Develop mobile apps for easier access.
+- Enhance scalability for larger community engagement.
+
+
 ## How to Use
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/Learn-Sunnah.git
-   cd Learn-Sunnah
+```bash
+# 1. Clone this repository:
+git clone https://github.com/Juwel2121/Learn-Sunnah.git
+cd Learn-Sunnah
+```
+```bash
+# 2. Set up a virtual environment:
+python -m venv venv
+source venv/bin/activate  # For Linux/MacOS
+venv\Scripts\activate      # For Windows
+```
+```bash
+# 3. Install dependencies:
+pip install -r requirements.txt
+```
+```bash
+# 4. Run the development server:
+python manage.py runserver
+```
+```bash
+# 5. Access the platform in your browser:
+http://127.0.0.1:8000/
+```
+
