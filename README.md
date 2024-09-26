@@ -49,12 +49,6 @@
 - **Code Editor**: VS Code
 - **Modules**: Content Management (Library, Q&A, User Profiles, Search, Voting)
 
-## Future Scope
-- Expand content by collaborating with scholars and experts.
-- Introduce multilingual support.
-- Develop mobile apps for easier access.
-- Enhance scalability for larger community engagement.
-
 
 ## How to Use
 
